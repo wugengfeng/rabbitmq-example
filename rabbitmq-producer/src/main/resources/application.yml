@@ -1,0 +1,63 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    jdbc-url: jdbc:mysql://localhost:3306/rabbitmq_db?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=true&allowMultiQueries=true&autoReconnect=true
+    username: root
+    password: wgf123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    minimum-idle: 5
+    idle-timeout: 180000
+    max-lifetime: 600000
+    validation-timeout: 1000
+    connection-timeout: 10000
+    connection-test-query: SELECT 1 FROM DUAL
+    maximum-pool-size: 10
+
+  rabbitmq:
+    port: 5672
+    host: localhost
+    username: rabbitmq
+    password: wgf123
+    publisher-confirm-type: correlated
+
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: wgf123
+    timeout: 10000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 10000
+        max-idle: 8
+        min-idle: 0
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+mybatis-plus:
+  global-config:
+    id-type: auto
+    column-underline: true
+    db-type: mysql
+
+mq:
+  retry:
+    interval: 60                # 消息重新投递时间间隔：秒
+    try-count: 3                # 消息重新投递次数
+  stock:                        # 队列交换机配置
+    exchange: stock.direct
+    deduction:
+      queue: stock.deduction
+      routing-key: deduction
+
+redis:
+  sequence-key: sequence        # msgId 自增序列key
+
+
+
+

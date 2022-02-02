@@ -1,0 +1,50 @@
+server:
+  port: 9002
+
+spring:
+  datasource:
+    jdbc-url: jdbc:mysql://localhost:3306/rabbitmq_db?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=true&allowMultiQueries=true&autoReconnect=true
+    username: root
+    password: wgf123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    minimum-idle: 5
+    idle-timeout: 180000
+    max-lifetime: 600000
+    validation-timeout: 1000
+    connection-timeout: 10000
+    connection-test-query: SELECT 1 FROM DUAL
+    maximum-pool-size: 10
+
+mybatis-plus:
+  global-config:
+    id-type: auto
+    column-underline: true
+    db-type: mysql
+
+pagehelper:
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+  row-bounds-with-count: true
+  helper-dialect: mysql
+
+# 定时任务线程池配置
+thread-pool:
+  corePoolSize: 5
+  maxPoolSize: 10
+  keepAliveTime: 60
+  queueCapacity: 100
+
+# 重新发送消息domain
+api:
+  msg: http://localhost:9000/
+
+task:
+  success:
+    delay: 10  # 消费成功消息日志异步清理延迟时间，单位分钟
+  repeat:
+    delay: 60  # 重复消息日志异步清理延迟时间，单位分钟
+  re-send:
+    cron: '0/30 * * * * ?' # 重新投递消息定时任务表达式
+    batch-size: 50 # 消息重新发送每批处理条数
+
