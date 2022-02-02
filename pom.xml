@@ -20,9 +20,9 @@
 
 	<modules>
 		<module>rabbitmq-base</module>
-		<module>rabbitmq-comsumer</module>
-		<module>rabbitmq-producer</module>
-		<module>rabbitmq-reparation</module>
+		<module>consumer-server</module>
+		<module>producer-server</module>
+		<module>reparation-server</module>
 	</modules>
 
 	<dependencyManagement>

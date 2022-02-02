@@ -8,10 +8,10 @@
         <version>1.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <artifactId>rabbitmq-producer</artifactId>
+    <artifactId>producer-server</artifactId>
     <version>1.0.0</version>
-    <name>rabbitmq-producer</name>
-    <description>消息生产者</description>
+    <name>producer-server</name>
+    <description>消息发送服务</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

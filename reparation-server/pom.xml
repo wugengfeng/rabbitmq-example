@@ -8,10 +8,10 @@
 		<version>1.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<artifactId>rabbitmq-reparation</artifactId>
+	<artifactId>reparation-server</artifactId>
 	<version>1.0.0</version>
-	<name>rabbitmq-reparation</name>
-	<description>消息补偿服务</description>
+	<name>reparation-server</name>
+	<description>补偿服务</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
